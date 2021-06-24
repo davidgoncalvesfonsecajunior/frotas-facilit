@@ -24,8 +24,8 @@ class VehicleRequest extends FormRequest
     public function rules()
     {
         return [
-            'placa' => "bail|required|unique:vehicles,placa,$this->id|min:6|max:8",
-            'chassi' => "bail|required|unique:vehicles,chassi,$this->id",
+            'placa' => "bail|required|unique:vehicles,placa,$this->vehicle|min:6|max:8",
+            'chassi' => "bail|required|unique:vehicles,chassi,$this->vehicle",
             'marca' => 'bail|required|min:3|max:10',
             'modelo' => 'bail|required|min:2|max:15',
             'ano' => 'bail|required',

@@ -5,31 +5,31 @@
     <table class="highlight">
         <thead>
             <tr>
-                <th>Placa</th>
-                <th class="right-align">Chassi</th>
-                <th class="right-align">Marca</th>
-                <th class="right-align">Modelo</th>
-                <th class="right-align">Ano</th>
-                <th class="right-align">Cor</th>
-                <th class="right-align">Combustivel</th>
-                <th class="right-align">KM</th>
-                <th class="right-align">Status</th>
-                <th class="right-align">Observação</th>
-                <th class="right-align">Opções</th>
+                <th class="center-align">Placa</th>
+                <th class="center-align">Chassi</th>
+                <th class="center-align">Marca</th>
+                <th class="center-align">Modelo</th>
+                <th class="center-align">Ano</th>
+                <th class="center-align">Cor</th>
+                <th class="center-align">Combustivel</th>
+                <th class="center-align">KM</th>
+                <th class="center-align">Status</th>
+                <th class="center-align">Observação</th>
+                <th class="center-align">Opções</th>
             </tr>
         </thead>
         <tbody>
             @forelse ($vehicles as $vehicle )
             <tr>
-                <td>{{$vehicle->placa}}</td>
-                <td class="right-align">{{$vehicle->chassi}}</td>
-                <td class="right-align">{{$vehicle->marca}}</td>
-                <td class="right-align">{{$vehicle->modelo}}</td>
-                <td class="right-align">{{$vehicle->ano}}</td>
-                <td class="right-align">{{$vehicle->cor}}</td>
-                <td class="right-align">{{$vehicle->combustivel}}</td>
-                <td class="right-align">{{$vehicle->km}}</td>
-                <td class="right-align">
+                <td class="center-align">{{$vehicle->placa}}</td>
+                <td class="center-align">{{$vehicle->chassi}}</td>
+                <td class="center-align">{{$vehicle->marca}}</td>
+                <td class="center-align">{{$vehicle->modelo}}</td>
+                <td class="center-align">{{$vehicle->ano}}</td>
+                <td class="center-align">{{$vehicle->cor}}</td>
+                <td class="center-align">{{$vehicle->combustivel}}</td>
+                <td class="center-align">{{$vehicle->km}}</td>
+                <td class="center-align">
                     @if ($vehicle->status)
                         Indisponível
                     @else
@@ -37,17 +37,17 @@
                     @endif
 
                 </td>
-                <td class="right-align">{{$vehicle->observacao}}</td>
+                <td class="center-align">{{$vehicle->observacao}}</td>
 
-                <td class="right-align">
-                    <a href="{{route('admin.vehicles.formEditar', $vehicle->id)}}">
+                <td class="center-align">
+                    <a href="{{route('admin.vehicles.edit', $vehicle->id)}}">
                         <span>
                             <i class="material-icons blue-text text-accent-2">edit</i>
                         </span>
                     </a>
 
 
-                    <form action="{{route('admin.vehicles.deletar', $vehicle->id)}}" method="post" style="display: inline;">
+                    <form action="{{route('admin.vehicles.destroy', $vehicle->id)}}" method="post" style="display: inline;">
                         @csrf
                         @method('DELETE')
                         <button style="border: 0 ; background: transparent ;" type="submit">
@@ -70,7 +70,7 @@
     </table>
 
     <div class="fixed-action-btn">
-        <a class="btn-floating btn-large waves-effect waves-light" href="{{route('admin.vehicles.form')}}">
+        <a class="btn-floating btn-large waves-effect waves-light" href="{{route('admin.vehicles.create')}}">
             <i class="large material-icons">add</i>
         </a>
     </div>

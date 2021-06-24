@@ -16,13 +16,17 @@
     <nav class="4caf50 green">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="/" class="brand-logo">Frota de Veículos IFNMG - Pirapora</a>
+                <a href="/" class="brand-logo">IFNMG - Pirapora</a>
                 <ul class="right">
                     <li>
-                        <a href="/">Veículos</a>
+                        <a href="{{route('admin.vehicles.index')}}">Veículos</a>
                     </li>
+
                     <li>
                         <a href="#">Usuários</a>
+                    </li>
+                    <li>
+                        <a href="#">Departamentos</a>
                     </li>
                     <li>
                         <a href="#">Agenda</a>

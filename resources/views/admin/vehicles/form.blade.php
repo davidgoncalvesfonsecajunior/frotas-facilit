@@ -107,7 +107,7 @@
         </div>
 
         <div class="right-align">
-            <a class="btn-flat waves-effect" href="{{route('admin.vehicles.listar')}}">Cancelar</a>
+            <a class="btn-flat waves-effect" href="{{route('admin.vehicles.index')}}">Cancelar</a>
             <button class="btn waves-effect waves-light" type="submit">Salvar</button>
         </div>
 
