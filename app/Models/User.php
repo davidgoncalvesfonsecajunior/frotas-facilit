@@ -17,9 +17,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'nome',
+        'telefone',
+        'data_nasc',
+        'cpf',
         'email',
         'password',
+        'departamento_id',
+        'owner_id',
     ];
 
     /**
@@ -40,4 +45,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function departamento()
+    {
+        return $this->belongsTo(Departamento::class);
+    }
+
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class, 'owner_id');
+    }
+
+    public function reservabuses()
+    {
+        return $this->hasMany(Reservabus::class, 'owner_id');
+    }
 }

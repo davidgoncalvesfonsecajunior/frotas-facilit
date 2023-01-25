@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\VehicleRequest;
+use App\Models\categoria;
 use App\Models\vehicle;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        $vehicles = vehicle::all();
+        $vehicles = vehicle::with('categoria')->get();
 
         return view('admin.vehicles.index', compact('vehicles'));
     }
@@ -28,8 +29,9 @@ class VehicleController extends Controller
      */
     public function create()
     {
+        $categorias = categoria::all();
         $action = route('admin.vehicles.store');
-        return view('admin.vehicles.form', compact('action'));
+        return view('admin.vehicles.form', compact('action', 'categorias'));
     }
 
     /**
@@ -41,6 +43,7 @@ class VehicleController extends Controller
     public function store(VehicleRequest $request)
     {
         vehicle::create($request->all());
+
 
         $request->session()->flash('sucesso', "Veículo $request->marca $request->modelo cadastrado com sucesso!");
 
@@ -55,10 +58,12 @@ class VehicleController extends Controller
      */
     public function edit($id)
     {
+        $categorias = categoria::all();
         $vehicle = vehicle::find($id);
         $action = route('admin.vehicles.update', $vehicle->id);
 
-        return view('admin.vehicles.form', compact('vehicle', 'action'));
+
+        return view('admin.vehicles.form', compact('vehicle', 'action', 'categorias'));
     }
 
     /**

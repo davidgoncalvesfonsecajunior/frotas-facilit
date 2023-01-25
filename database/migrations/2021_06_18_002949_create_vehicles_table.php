@@ -26,6 +26,8 @@ class CreateVehiclesTable extends Migration
             $table->boolean('status');
             $table->string('observacao')->nullable();
 
+            $table->foreignId('categoria_id')->constrained()->onDelete('cascade');
+
             $table->timestamps();
         });
     }

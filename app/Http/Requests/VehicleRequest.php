@@ -27,6 +27,7 @@ class VehicleRequest extends FormRequest
             'placa' => "bail|required|unique:vehicles,placa,$this->vehicle|min:6|max:8",
             'chassi' => "bail|required|unique:vehicles,chassi,$this->vehicle",
             'marca' => 'bail|required|min:3|max:10',
+            'categoria_id' => 'bail|required|integer',
             'modelo' => 'bail|required|min:2|max:15',
             'ano' => 'bail|required',
             'cor' => 'bail|required|min:3|max:15',
