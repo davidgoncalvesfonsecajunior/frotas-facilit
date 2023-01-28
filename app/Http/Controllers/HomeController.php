@@ -29,7 +29,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $reservas = $this->$reserva->orderBy('data_saida', 'DESC');
+        $reservas = $this->reserva->orderBy('data_saida', 'DESC');
         if ($query = request()->query('search')) {
             $reservas->where('local_destino', 'LIKE', '%' . $query . '%');
         }

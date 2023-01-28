@@ -69,7 +69,7 @@
 
         <div class="fixed-action-btn">
             <a class="btn-floating btn-large waves-effect waves-light" href="{{ route('admin.reservabuses.create') }}">
-                <i class="btn btn-lg btn-success">reservar Van/Onibus veiculo</i>
+                <i class="btn btn-lg btn-success">reservar Van/Onibus</i>
             </a>
         </div>
     </section>
